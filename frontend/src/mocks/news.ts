@@ -7,7 +7,7 @@ export const mockNews: NewsDto[] = [
     excerpt: 'NTNSP initiates construction of critical transmission infrastructure to strengthen national grid.',
     content: 'Full article content here...',
     category: 'Infrastructure',
-    imageUrl: 'https://images.unsplash.com/photo-1509390142526-ce3b8a07a33f?w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
     publishedAt: '2026-02-05',
     author: 'Infrastructure Division'
   },
@@ -17,7 +17,7 @@ export const mockNews: NewsDto[] = [
     excerpt: 'Smart grid implementation achieves 60% completion across transmission network.',
     content: 'Full article content here...',
     category: 'Technology',
-    imageUrl: 'https://images.unsplash.com/photo-1581093458791-9d42e3c58a29?w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800',
     publishedAt: '2026-02-04',
     author: 'Technology Team'
   },
@@ -37,7 +37,7 @@ export const mockNews: NewsDto[] = [
     excerpt: 'Investment approved for upgrading 15 key substations nationwide.',
     content: 'Full article content here...',
     category: 'Development',
-    imageUrl: 'https://images.unsplash.com/photo-1497440001374-f100e0eb4e0f?w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800',
     publishedAt: '2026-02-02',
     author: 'Development Team'
   }

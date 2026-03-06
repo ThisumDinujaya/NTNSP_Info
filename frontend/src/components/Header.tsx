@@ -29,9 +29,15 @@ export default function Header() {
             <Link to="/calendar" className="text-secondary hover:text-primary transition-colors font-medium">
               Calendar
             </Link>
-            <Link to="/grid" className="text-secondary hover:text-primary transition-colors font-medium">
-              Grid Status
+            <Link to="/gallery" className="text-secondary hover:text-primary transition-colors font-medium">
+              Gallery
             </Link>
+            <Link to="/corporate" className="text-secondary hover:text-primary transition-colors font-medium">
+              Corporate
+            </Link>
+            {/* <Link to="/grid" className="text-secondary hover:text-primary transition-colors font-medium">
+              Grid Status
+            </Link> */}
           </nav>
 
           {/* User Actions */}
@@ -79,12 +85,26 @@ export default function Header() {
                 Calendar
               </Link>
               <Link
+                to="/gallery"
+                className="px-4 py-2 hover:bg-muted rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Gallery
+              </Link>
+              <Link
+                to="/corporate"
+                className="px-4 py-2 hover:bg-muted rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Corporate
+              </Link>
+              {/* <Link
                 to="/grid"
                 className="px-4 py-2 hover:bg-muted rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Grid Status
-              </Link>
+              </Link> */}
             </nav>
           </div>
         )}

@@ -32,7 +32,7 @@ export const mockEvents: EventDto[] = [
     id: '4',
     title: 'Emergency Response Drill',
     description: 'Practice drill for grid emergency scenarios.',
-    eventDate: '2026-02-26',
+    eventDate: '2026-03-18',
     eventTime: '10:00 AM',
     location: 'Regional Control Centers',
     category: 'Drill'
@@ -41,7 +41,7 @@ export const mockEvents: EventDto[] = [
     id: '5',
     title: 'Infrastructure Planning Session',
     description: 'Strategic planning for future transmission projects.',
-    eventDate: '2026-03-02',
+    eventDate: '2026-03-22',
     eventTime: '09:30 AM',
     location: 'NTNSP Headquarters',
     category: 'Planning'
