@@ -13,7 +13,7 @@ export async function getCurrentUser(): Promise<User | null> {
   }
 }
 
-export async function login(username: string, password: string): Promise<User> {
+export async function login(username: string, _password: string): Promise<User> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const user: User = {

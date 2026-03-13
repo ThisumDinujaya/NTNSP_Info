@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useUser } from '../context/UserContext';
-import { Menu, X, Activity, User, LogOut, Bell, Search } from 'lucide-react';
+import { Menu, X, Bell, Search } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Header() {
-  const { user, logout } = useUser();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -13,13 +11,10 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="bg-gradient-to-br from-primary via-accent to-primary p-2 rounded-lg shadow-neon group-hover:shadow-glow transition-all relative overflow-hidden">
-              <div className="absolute inset-0 bg-grid opacity-20"></div>
-              <Activity className="h-6 w-6 text-white relative z-10" />
-            </div>
+            <img src="/NTNSP-logo.png" alt="NTNSP Logo" className="h-10 w-auto" />
             <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">NTNSP</h1>
-              <p className="text-xs text-gray-500">National Transmission Network</p>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">NTNSP Info</h1>
+              {/* <p className="text-xs text-gray-500">National Transmission Network</p> */}
             </div>
           </Link>
 
@@ -34,9 +29,15 @@ export default function Header() {
             <Link to="/calendar" className="text-secondary hover:text-primary transition-colors font-medium">
               Calendar
             </Link>
-            <Link to="/grid" className="text-secondary hover:text-primary transition-colors font-medium">
-              Grid Status
+            <Link to="/gallery" className="text-secondary hover:text-primary transition-colors font-medium">
+              Gallery
             </Link>
+            <Link to="/corporate" className="text-secondary hover:text-primary transition-colors font-medium">
+              Corporate
+            </Link>
+            {/* <Link to="/grid" className="text-secondary hover:text-primary transition-colors font-medium">
+              Grid Status
+            </Link> */}
           </nav>
 
           {/* User Actions */}
@@ -48,22 +49,6 @@ export default function Header() {
               <Bell className="h-5 w-5 text-secondary" />
               <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full"></span>
             </button>
-            
-            {user && (
-              <div className="hidden md:flex items-center space-x-3">
-                <div className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg border border-primary/20">
-                  <User className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium text-secondary">{user.name}</span>
-                </div>
-                <button
-                  onClick={logout}
-                  className="p-2 hover:bg-red-50 text-red-600 rounded-lg transition-colors"
-                  title="Logout"
-                >
-                  <LogOut className="h-5 w-5" />
-                </button>
-              </div>
-            )}
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -100,24 +85,26 @@ export default function Header() {
                 Calendar
               </Link>
               <Link
+                to="/gallery"
+                className="px-4 py-2 hover:bg-muted rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Gallery
+              </Link>
+              <Link
+                to="/corporate"
+                className="px-4 py-2 hover:bg-muted rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Corporate
+              </Link>
+              {/* <Link
                 to="/grid"
                 className="px-4 py-2 hover:bg-muted rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Grid Status
-              </Link>
-              {user && (
-                <button
-                  onClick={() => {
-                    logout();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="px-4 py-2 hover:bg-red-50 text-red-600 rounded-lg transition-colors text-left flex items-center space-x-2"
-                >
-                  <LogOut className="h-4 w-4" />
-                  <span>Logout</span>
-                </button>
-              )}
+              </Link> */}
             </nav>
           </div>
         )}

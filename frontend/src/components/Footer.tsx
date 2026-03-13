@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Activity, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -10,10 +10,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-gradient-to-br from-primary to-accent p-2 rounded-lg relative overflow-hidden">
-                <div className="absolute inset-0 bg-grid opacity-20"></div>
-                <Activity className="h-6 w-6 text-white relative z-10" />
-              </div>
+              <img src="/NTNSP-logo.png" alt="NTNSP Logo" className="h-12 w-auto" />
               <div>
                 <h3 className="text-xl font-bold">NTNSP</h3>
                 <p className="text-sm text-gray-300">National Transmission Network Service Provider</p>
