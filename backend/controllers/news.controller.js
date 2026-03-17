@@ -39,12 +39,13 @@ export const getAdminNews = async (_req, res, next) => {
 export const createNews = async (req, res, next) => {
   try {
     const payload = {
+      approved: true,
+      approvedBy: req.user.username,
+      approvedAt: new Date(),
       ...req.body,
       createdBy: req.user.username,
       updatedBy: req.user.username,
-      approved: false,
-      approvedBy: '',
-      approvedAt: null,
+      activeStatus: req.body.activeStatus ?? true,
     };
 
     const createdNews = await addNews(payload);
@@ -71,10 +72,10 @@ export const updateNews = async (req, res, next) => {
     const updated = await updateNewsById(id, {
       ...req.body,
       updatedBy: req.user.username,
-      // Any update requires re-approval to keep publishing workflow safe.
-      approved: false,
-      approvedBy: '',
-      approvedAt: null,
+      // Keep published items visible after edits
+      approved: true,
+      approvedBy: req.user.username,
+      approvedAt: new Date(),
     });
 
     sendSuccess(res, { data: updated });

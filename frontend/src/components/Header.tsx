@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Menu, X, Bell, Search } from 'lucide-react';
+import { Menu, X, Bell, Search, User, LogOut } from 'lucide-react';
 import { useState } from 'react';
+import { useUser } from '../context/UserContext';
 import { canAccessAdmin } from '../utils/rbac'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, logout } = useUser();
 
   return (
     <header className="bg-surface border-b border-border sticky top-0 z-50 shadow-sm backdrop-blur-sm bg-surface/95">
@@ -50,6 +52,37 @@ export default function Header() {
               <Bell className="h-5 w-5 text-secondary" />
               <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full"></span>
             </button>
+
+            {user ? (
+              <div className="flex items-center space-x-4">
+                {canAccessAdmin(user) && (
+                  <Link
+                    to="/admin"
+                    className="hidden md:block btn-primary"
+                  >
+                    Admin
+                  </Link>
+                )}
+                <div className="flex items-center space-x-2">
+                  <User className="h-5 w-5 text-secondary" />
+                  <span className="hidden md:block text-secondary font-medium">{user.name}</span>
+                </div>
+                <button
+                  onClick={logout}
+                  className="p-2 hover:bg-muted rounded-lg transition-colors"
+                  title="Logout"
+                >
+                  <LogOut className="h-5 w-5 text-secondary" />
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="btn-primary"
+              >
+                Login
+              </Link>
+            )}
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -106,6 +139,43 @@ export default function Header() {
               >
                 Grid Status
               </Link> */}
+
+              {/* Mobile User Actions */}
+              <div className="border-t border-border pt-2 mt-2">
+                {user ? (
+                  <div className="space-y-2">
+                    <div className="px-4 py-2 text-secondary font-medium">
+                      Welcome, {user.name}
+                    </div>
+                    {canAccessAdmin(user) && (
+                      <Link
+                        to="/admin"
+                        className="block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Admin Panel
+                      </Link>
+                    )}
+                    <button
+                      onClick={() => {
+                        logout();
+                        setMobileMenuOpen(false);
+                      }}
+                      className="w-full px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                )}
+              </div>
             </nav>
           </div>
         )}

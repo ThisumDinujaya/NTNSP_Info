@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
-import { Activity, User, Lock } from 'lucide-react';
+import { User, Lock } from 'lucide-react';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -34,9 +34,8 @@ export default function LoginPage() {
       <div className="max-w-md w-full relative z-10">
         {/* Logo & Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center bg-gradient-to-br from-primary via-accent to-primary p-4 rounded-2xl shadow-neon mb-4 relative overflow-hidden">
-            <div className="absolute inset-0 bg-grid opacity-20"></div>
-            <Activity className="h-12 w-12 text-white relative z-10" />
+          <div className="flex justify-center mb-6">
+            <img src="/NTNSP-logo.png" alt="NTNSP Logo" className="h-16 w-auto" />
           </div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
             NTNSP Info Portal
@@ -96,7 +95,12 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 text-center text-sm text-gray-600">
-            <p>For demo: Use any username/password</p>
+            <p className="font-medium mb-2">Demo Credentials:</p>
+            <div className="space-y-1">
+              <p><strong>Admin:</strong> admin / admin123</p>
+              <p><strong>User:</strong> john / john123</p>
+              <p><strong>User:</strong> jane / jane123</p>
+            </div>
           </div>
         </div>
 

@@ -2,16 +2,24 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* NTNSP Grid/Network Theme - Blues and Teals */
+/* NTNSP Official Logo Theme - Deep Navy, Azure & Gold Accents */
 :root {
-  --base: 210 40% 98%;
+  --base: 210 20% 97%;
   --surface: 0 0% 100%;
-  --primary: 195 100% 39%;
+  --primary: 220 90% 45%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 210 50% 25%;
-  --accent: 180 77% 42%;
-  --muted: 210 30% 94%;
-  --border: 210 20% 90%;
+  --secondary: 220 25% 20%;
+  --accent: 190 100% 50%;
+  --muted: 220 25% 92%;
+  --border: 220 20% 88%;
+  --neon-green: 120 100% 50%;
+  --navy-dark: 220 100% 15%;
+  --navy-medium: 220 90% 25%;
+  --gold: 45 100% 55%;
+  --orange: 25 100% 60%;
+  --gold-glow: 45 100% 55%;
+  --ntnsp-brown: 0 25% 20%;
+  --ntnsp-gold: 50 100% 50%;
 }
 
 * {
@@ -25,6 +33,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F8FAFC;
+  line-height: 1.6;
 }
 
 html {
@@ -54,4 +64,183 @@ html {
   background-image: linear-gradient(hsl(var(--border)) 1px, transparent 1px), 
                     linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
   background-size: 50px 50px;
+}
+
+/* Glassmorphism Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(30, 58, 138, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(31, 81, 255, 0.2);
+}
+
+/* Neon Glow Effects */
+.neon-glow {
+  box-shadow: 
+    0 0 10px rgba(31, 81, 255, 0.4),
+    0 0 20px rgba(31, 81, 255, 0.2),
+    inset 0 0 10px rgba(31, 81, 255, 0.1);
+}
+
+.neon-glow-sm {
+  box-shadow: 0 0 15px rgba(31, 81, 255, 0.3);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(31, 81, 255, 0.5);
+}
+
+.neon-green {
+  color: hsl(var(--neon-green));
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.neon-gold {
+  color: hsl(var(--gold));
+  text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+/* Circuit Pattern */
+.circuit-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(31, 81, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(31, 81, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(31, 81, 255, 0.1) 0%, transparent 50%);
+  background-size: 100px 100px;
+  opacity: 0.3;
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px 0 rgba(31, 81, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(31, 81, 255, 0.4);
+}
+
+/* Card Styles */
+.card-minimal {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 41, 55, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card-minimal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(31, 41, 55, 0.15);
+}
+
+/* NTNSP Gradient Border */
+.ntnsp-gradient-border {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 41, 55, 0.1);
+  transition: all 0.3s ease;
+}
+
+.ntnsp-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #633131 0%, #FFD700 50%, #633131 100%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+.ntnsp-gradient-border:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(31, 41, 55, 0.15);
+}
+
+.ntnsp-gradient-border:hover::before {
+  background: linear-gradient(135deg, #633131 0%, #FFD700 70%, #633131 100%);
+}
+
+/* Animated gradient borders */
+.gradient-border {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
+  border: 2px solid transparent;
+}
+
+/* Pulsing animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(31, 81, 255, 0.4), 0 0 20px rgba(31, 81, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(31, 81, 255, 0.6), 0 0 30px rgba(31, 81, 255, 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Current Flow Animation for Transmission Lines */
+@keyframes currentFlow {
+  0% { stroke-dashoffset: 60; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.transmission-line {
+  stroke: url(#transmissionGradient);
+  stroke-width: 3;
+  fill: none;
+  filter: drop-shadow(0 0 8px #00FFFF) drop-shadow(0 0 16px #1E90FF);
+}
+
+.current-flow {
+  stroke-dasharray: 20 40;
+  stroke-dashoffset: 60;
+  animation: currentFlow 2s linear infinite;
+}
+
+/* Data lines pattern */
+@keyframes data-flow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.data-lines {
+  background-size: 200% 200%;
+  animation: data-flow 20s linear infinite;
 }

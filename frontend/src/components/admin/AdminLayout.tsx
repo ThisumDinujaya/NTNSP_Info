@@ -30,10 +30,10 @@ export default function AdminLayout() {
           <aside className="h-screen rounded-2xl border border-border bg-elevated shadow-[0_20px_48px_-24px_rgba(15,10,10,0.35)] p-4 md:p-5 lg:sticky lg:top-6 lg:self-start flex flex-col">
             <Link to="/" className="flex items-center gap-2.5 mb-6 pb-4 border-b border-border group">
               <div className="bg-elevated border border-border p-1.5 rounded-lg shadow-[0_8px_20px_rgba(242,75,58,0.2)] group-hover:shadow-[0_10px_28px_rgba(242,75,58,0.28)] transition-shadow">
-                <img src="/logo.png" alt="NSO logo" className="h-8 w-8 rounded-md object-cover" />
+                <img src="/logo.png" alt="NTNSP logo" className="h-8 w-8 rounded-md object-cover" />
               </div>
               <div>
-                <h1 className="text-base font-bold text-secondary leading-tight">NSO Info</h1>
+                <h1 className="text-base font-bold text-secondary leading-tight">NTNSP Info</h1>
                 <p className="text-[10px] text-content-muted leading-tight">Admin Panel</p>
               </div>
             </Link>

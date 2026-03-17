@@ -83,7 +83,7 @@ export const uploadNewsImage = async (file: File): Promise<string> => {
 
   const { data } = await api.post<UploadImageResponse>('/news/upload', formData, {
     headers: {
-      'Content-Type': 'multipart/form-data',
+      'Content-Type': undefined, // Let axios set the correct multipart boundary
     },
   })
 
